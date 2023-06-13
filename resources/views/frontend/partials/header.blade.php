@@ -49,9 +49,8 @@
                     <i
                         class="flag-icon flag-icon-us">
                     </i>
-                    <span class="selected-language" style="color: #252F49; font-weight: bold;">
-                        {{Carbon\Carbon::now()->format('g:i A')}}
-                        {{--   12:15:30 PM         --}}
+                    <span class="selected-language" style="color: #252F49; font-weight: bold;" id='ct6'>
+{{--                        {{Carbon\Carbon::now()->format('g:i A')}}   --}}
                     </span>
                 </a>
             </li>
@@ -71,7 +70,7 @@
                         <span
                             class="user-name fw-bolder" style="color: #252F49; font-weight: bold;">
                             {{ ucwords(Carbon\Carbon::now()->format('F d l')) }}
-{{--                            MAY 18 THURSDAY --}}
+                            {{--                            MAY 18 THURSDAY --}}
                         </span>
                     </div>
                 </a>
