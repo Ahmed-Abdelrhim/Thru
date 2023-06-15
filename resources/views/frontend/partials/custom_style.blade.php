@@ -19,4 +19,9 @@
     .navigation-header{
         margin: 0 !important;
     }
+
+    @media (max-width: 767px) {
+        .app-content {
+        }
+    }
 </style>

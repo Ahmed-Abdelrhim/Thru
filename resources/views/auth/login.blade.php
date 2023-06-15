@@ -2,7 +2,7 @@
 <div style="display: flex;max-height:100%;" id="parent">
 
     <div class="image">
-        <img src="{{ asset('images/login_image.png') }}" alt="" style="height: 100%; width: 100%">
+                <img src="{{ asset('images/login_image.png') }}" alt="" style="height: 100%; width: 100%">
     </div>
 
     <div class="form">
@@ -13,9 +13,9 @@
                 @csrf
 
                 <div>
-                    Welcome to Q-Parking! 👋  🚀
+                    Welcome to Q-Parking! 👋 🚀
                     <i> </i>
-                    <br />
+                    <br/>
                     <small>
                         Please sign-in to your account and start the adventure
                     </small>
@@ -67,7 +67,6 @@
 
 
 </div>
-
 
 
 {{--<x-guest-layout>--}}
