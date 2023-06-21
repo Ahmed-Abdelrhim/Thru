@@ -83,6 +83,24 @@
                 </a>
             </li>
 
+            <li class="item">
+                <a href="#" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                    <span class="navlink">Users</span>
+                </a>
+            </li>
+
+            <li class="item">
+                <a href="{{route('role.index')}}" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                    <span class="navlink">Roles</span>
+                </a>
+            </li>
+
 
             <div class="bottom_content" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <div class="bottom">
