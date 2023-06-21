@@ -132,17 +132,24 @@
 
     <img class="block-2" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
     <img class="car-2" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
-    <img class="car-3" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
-    <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">
-    <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">
-    <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">
+    <!-- TOP RIGHT CARS -->
+    {{--    <img class="car-3" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">     --}}
+    {{--    <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">     --}}
+    {{--    <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">     --}}
+    {{--    <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">     --}}
+
+
+    <!-- CENTER RIGHT CARS -->
     <img class="car-7" src="{{asset('images/dashboard/83555579-5394-48a5-b459-86d754e5f329.png')}}" alt="">
-    <img class="car-8" src="{{asset('images/dashboard/199a5fee-7daa-4de2-89fd-ce51b1efd602.png')}}" alt="">
+    {{--    <img class="car-8" src="{{asset('images/dashboard/199a5fee-7daa-4de2-89fd-ce51b1efd602.png')}}" alt=""> --}}
+
+
+    <!-- BOTTOM LEFT CARS -->
     <img class="car-9" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-    <img class="car-10" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-    <img class="car-11" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-    <img class="car-12" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-    <img class="block-3" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
+    {{--    <img class="car-10" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">--}}
+    {{--    <img class="car-11" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">--}}
+    {{--    <img class="car-12" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">--}}
+    {{--    <img class="block-3" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">--}}
 
 
     <span class="word-2">PRE-MENU</span>
