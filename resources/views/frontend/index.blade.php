@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
     <title>Drive-Thru</title>
@@ -84,7 +86,7 @@
             </li>
 
             <li class="item">
-                <a href="#" class="nav_link">
+                <a href="{{route('user.create')}}" class="nav_link">
                 <span class="navlink_icon">
                     <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
                 </span>

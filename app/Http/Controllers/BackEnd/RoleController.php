@@ -71,4 +71,9 @@ class RoleController extends Controller
         // $notifications = array('message' => 'Data Deleted Success', 'alert-type' =>'success');
         // return redirect(route(RouteServiceProvider::Role))->with($notifications);
     }
+
+    public function indexxx()
+    {
+        return view('role.indexxx');
+    }
 }

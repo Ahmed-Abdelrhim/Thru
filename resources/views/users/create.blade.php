@@ -130,17 +130,44 @@
 <div class="main">
     <!-- START ROLE CREATE FORM -->
     <div class="columns-3">
-{{--        <div class="box bg-1">--}}
-{{--            <p class="head">Average Waiting Time</p>--}}
-{{--            <h2 style="color:#D2B231">5:48</h2>--}}
-{{--        </div>--}}
-
-        <form  method="POST" action="{{route('role.store')}}" >
+        <form  method="POST" action="{{route('user.store')}}" >
             @csrf
             <div class="form-group">
-                <label for="role" class="role-input">Role Name</label>
-                <input type="text" class="input-form @error('role_name') is-invalid @enderror" id="role" name="role_name" >
-                @error('role_name')
+                <label for="name" class="role-input">User Name</label>
+                <input type="text" class="input-form @error('name') is-invalid @enderror" id="name" name="name" >
+                @error('name')
+                <div class="input-validation" >{{ $message }}</div>
+                @enderror
+            </div>
+
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="email" class="role-input">User Email</label>
+                <input type="text" class="input-form @error('email') is-invalid @enderror" id="email" name="email" >
+                @error('email')
+                <div class="input-validation" >{{ $message }}</div>
+                @enderror
+            </div>
+
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="role" class="role-input">User Role</label>
+                <select class="input-form" aria-label="Default select example" name="role" id="role">
+                    <option selected>-- Choose User Role -- </option>
+                    <option value="1">User</option>
+                    <option value="2">Admin</option>
+                </select>
+
+                @error('role')
+                <div class="input-validation" >{{ $message }}</div>
+                @enderror
+            </div>
+
+
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="password" class="role-input">User Password</label>
+                <input type="password" class="input-form @error('password') is-invalid @enderror" id="password" name="password" >
+                @error('password')
                 <div class="input-validation" >{{ $message }}</div>
                 @enderror
             </div>
@@ -169,8 +196,6 @@
                 hours = 12;
             }
             var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-            // x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
-            // x1 = hours + ":" + x.getMinutes() + ":" + x.getSeconds() + ":" + ampm;
             x1 = hours + ":" + x.getMinutes() + ":" + x.getSeconds() + ampm;
             document.getElementById('ct6').innerHTML = x1;
             display_c6();

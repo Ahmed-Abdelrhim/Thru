@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackEnd\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -31,16 +32,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('play',[FrontController::class,'index']);
+
     //RoleController···
     Route::get('role',[RoleController::class,'index'])->name('role.index');
     Route::get('/Role/Create',[RoleController::class,'create'])->name('role.create');
     Route::post('/Role/Store',[RoleController::class,'store'])->name('role.store');
-
     Route::get('Role/Show/{id}', [RoleController::class,'show'])->name('role.show');
     Route::post('Role/Save/Permissions/{id}', [RoleController::class,'savePermission'])->name('role.save.permissions');
     Route::post('Role/Delete/{id}', [RoleController::class,'destroy'])->name('role.delete');
 
-
+    //UserController···
+    Route::get('user',[UserController::class,'index'])->name('user.index');
+    Route::get('user/create',[UserController::class,'create'])->name('user.create');
+    Route::post('user/store',[UserController::class,'store'])->name('user.store');
 
 });
 Route::post('user/logout/form',[ProfileController::class,'userLogout'])->name('user.logout.form');
