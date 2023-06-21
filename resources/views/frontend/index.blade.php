@@ -205,6 +205,9 @@
         hours = x.getHours() % 12;
         hours = hours ? hours : 12;
         hours = hours - 1;
+        if(hours === 0) {
+            hours = 12;
+        }
         var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
         // x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
         // x1 = hours + ":" + x.getMinutes() + ":" + x.getSeconds() + ":" + ampm;

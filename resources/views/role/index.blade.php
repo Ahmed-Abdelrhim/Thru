@@ -58,7 +58,7 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Roles Table</h4>
-                                    <a class="btn btn-primary">Create New Role</a>
+                                    <a class="btn btn-primary" href="{{route('role.create')}}">Create New Role</a>
                                 </div>
                                 <div class="card-datatable">
                                     <table class="dt-responsive table">

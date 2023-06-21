@@ -5,6 +5,8 @@ use App\Interfaces\RoleInterface;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -46,14 +48,29 @@ class RoleRepository implements RoleInterface {
             $role       = Role::query()->find($id);
             $permission = Permission::query()->whereIn('id', $permissions)->get();
             $role->syncPermissions($permission);
-            return redirect(RouteServiceProvider::Role)->withSuccess('The Permission Updated Successfully');
+            // return redirect(RouteServiceProvider::Role)->withSuccess('The Permission Updated Successfully');
         }
     }
 
-    public function create()
+    public function store($request)
     {
-        // TODO :: create a role here
+        // create validation
+        $rules = [
+            'role_name' => ['required' , 'regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/' , 'unique:roles,name']
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $role = Role::create(['name' => $request->get('role_name')]);
+        if ($role) {
+            return true;
+        }
+        return false;
     }
+
+
 
     public function edit()
     {

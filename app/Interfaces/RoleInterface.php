@@ -3,7 +3,7 @@ namespace App\Interfaces;
 interface RoleInterface {
     public function all();
 
-    public function create();
+    public function store($request);
     public function show($id);
 
     public function edit();

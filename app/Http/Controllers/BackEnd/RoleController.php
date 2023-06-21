@@ -17,11 +17,25 @@ class RoleController extends Controller
     {
         $this->roleRepository = $roleRepository;
     }
-
     public function index()
     {
         $this->data['roles'] = $this->roleRepository->all();
         return view('role.index', $this->data);
+    }
+    public function create()
+    {
+        return view('role.create');
+    }
+
+    public function store(Request $request)
+    {
+        $role = $this->roleRepository->store($request);
+        if (!$role) {
+            $notifications = array('message' => 'SomeThing Went Wrong','alert-type' => 'error');
+            return redirect(RouteServiceProvider::Role)->with($notifications);
+        }
+        $notifications = array('message' => 'The Role Created Successfully','alert-type' => 'success');
+        return redirect(RouteServiceProvider::Role)->with($notifications);
     }
 
     public function show($role_id)
@@ -30,7 +44,6 @@ class RoleController extends Controller
         $this->data = $this->roleRepository->show($id);
         return view('role.show',  $this->data);
     }
-
     public function savePermission(Request $request , $id)
     {
         $permissions = $request->all();
@@ -41,7 +54,16 @@ class RoleController extends Controller
         $notifications = array('message' => 'Data Saved Success' , 'alert-type' => 'success');
         return redirect(RouteServiceProvider::Role)->with($notifications);
     }
-
+    public function edit($role_id)
+    {
+        //TODO : GET Role Here
+        return view('role.edit');
+    }
+    public function update($role_id)
+    {
+        //TODO : Update Role Here
+        return view('role.index');
+    }
     public function destroy($id)
     {
         return response()->json(['success' => true , 'status' => 200]);

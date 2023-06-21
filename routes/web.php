@@ -33,9 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::get('play',[FrontController::class,'index']);
     //RoleController···
     Route::get('role',[RoleController::class,'index'])->name('role.index');
-    Route::get('role/show/{id}', [RoleController::class,'show'])->name('role.show');
-    Route::post('role/save/permissions/{id}', [RoleController::class,'savePermission'])->name('role.save.permissions');
-    Route::post('role/delete/{id}', [RoleController::class,'destroy'])->name('role.delete');
+    Route::get('/Role/Create',[RoleController::class,'create'])->name('role.create');
+    Route::post('/Role/Store',[RoleController::class,'store'])->name('role.store');
+
+    Route::get('Role/Show/{id}', [RoleController::class,'show'])->name('role.show');
+    Route::post('Role/Save/Permissions/{id}', [RoleController::class,'savePermission'])->name('role.save.permissions');
+    Route::post('Role/Delete/{id}', [RoleController::class,'destroy'])->name('role.delete');
 
 
 
