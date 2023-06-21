@@ -29,12 +29,11 @@ class UserController extends Controller
         $user = $this->userService->store($request);
         if (!$user) {
             $notifications = array('message' => 'SomeThing Went Wrong','alert-type' => 'error');
-            return redirect(back())->with($notifications);
+            return redirect()->back()->with($notifications);
         }
 
-        // 'role' => $request->get('role'),
-        $notifications = array('message' => 'SomeThing Went Wrong','alert-type' => 'error');
-        return redirect(back())->with($notifications);
+        $notifications = array('message' => 'User Created Successfully','alert-type' => 'success');
+        return redirect()->back()->with($notifications);
 
     }
 }

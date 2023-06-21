@@ -19,6 +19,7 @@ class UserRepository implements UserInterface
             'name' => ['required', 'regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/' , 'max:100'],
             'email' => ['required', 'string' , 'email' , 'unique:users,email' , 'max:255'],
             'password' => ['required','string', 'min:8' , 'max:255'],
+            'role' => ['required',in_array($request->get('password') , [0,1]) ]
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -26,11 +27,11 @@ class UserRepository implements UserInterface
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        return $request;
         $user = User::query()->create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'password' => $request->get('password'),
+            'role' => $request->get('role'),
+            'password' => bcrypt($request->get('password')),
             'created_at' => Carbon::now(),
         ]);
         if ($user) {

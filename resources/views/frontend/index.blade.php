@@ -94,17 +94,20 @@
                 </a>
             </li>
 
-            <li class="item">
-                <a href="{{route('role.index')}}" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                    <span class="navlink">Roles</span>
-                </a>
-            </li>
+            <!--
+                <li class="item">
+                    <a href="{{route('role.index')}}" class="nav_link">
+                    <span class="navlink_icon">
+                        <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                    </span>
+                        <span class="navlink">Roles</span>
+                    </a>
+                </li>
+            -->
 
 
-            <div class="bottom_content" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <div class="bottom_content"
+                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <div class="bottom">
                     <img class="" src="{{asset('images/dashboard/Logout.png')}}" alt="">
                     <span> Logout</span>
@@ -207,7 +210,7 @@
         hours = x.getHours() % 12;
         hours = hours ? hours : 12;
         hours = hours - 1;
-        if(hours === 0) {
+        if (hours === 0) {
             hours = 12;
         }
         var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
@@ -222,6 +225,7 @@
         var refresh = 1000; // Refresh rate in milli seconds
         mytime = setTimeout('display_ct6()', refresh)
     }
+
     display_c6();
 </script>
 
