@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackEnd\CarController;
 use App\Http\Controllers\BackEnd\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Providers\RouteServiceProvider;
@@ -46,6 +47,10 @@ Route::middleware('auth')->group(function () {
     Route::get('user',[UserController::class,'index'])->name('user.index');
     Route::get('user/create',[UserController::class,'create'])->name('user.create');
     Route::post('user/store',[UserController::class,'store'])->name('user.store');
+
+    //CarController···
+    Route::post('user/store',[CarController::class,'index'])->name('car.index');
+
 
 });
 Route::post('user/logout/form',[ProfileController::class,'userLogout'])->name('user.logout.form');

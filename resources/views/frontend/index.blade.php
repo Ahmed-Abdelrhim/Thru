@@ -11,7 +11,7 @@
     <title>Drive-Thru</title>
     <link rel="stylesheet" href="{{asset('frontend/css/custom/style.css')}}"/>
 </head>
-<body onload=display_ct();>
+<body onload=display_ct6();>
 <!-- navbar -->
 <nav class="navbar">
     <div class="logo_item">
@@ -237,14 +237,35 @@
 </script>
 
 <script>
-    $(window).on('load', function () {
-        if (feather) {
-            feather.replace({
-                width: 14,
-                height: 14
+    $(document).ready(function () {
+        $('.right-arrow').on('click', function () {
+            // console.log('right-arrow');
+            increaseCarCount();
+        });
+
+        function increaseCarCount() {
+            //  clone = $('#form-row').clone().insertBefore('.form-row:last');
+            // name_length = $("input[id='name']").length;
+            // make ajax request
+            $.ajax({
+               type: 'POST' ,
+               url: '{{route('')}}',
+               data: '_token = <?php echo csrf_token() ?>',
+               success:function(data) {
+                  $("#msg").html(data.msg);
+               }
             });
-        }
-    })
+    });
 </script>
 </body>
 </html>
+
+
+{{--    $(window).on('load', function () {--}}
+{{--        if (feather) {--}}
+{{--            feather.replace({--}}
+{{--                width: 14,--}}
+{{--                height: 14--}}
+{{--            });--}}
+{{--        }--}}
+{{--    })--}}
