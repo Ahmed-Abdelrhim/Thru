@@ -123,10 +123,10 @@
 
 <div class="main" >
     <!-- START CASHIER IMAGES -->
-    <img class="left-arrow" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}" alt="">
-    <img class="right-arrow" src="{{asset('images/dashboard/4dc5a9b3-2f19-4f07-bb91-d47ba4c26760.png')}}" alt="">
+    <img class="left-arrow"  id="left-arrow"  src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}" alt="">
+    <img class="right-arrow" id="right-arrow" src="{{asset('images/dashboard/4dc5a9b3-2f19-4f07-bb91-d47ba4c26760.png')}}" alt="">
     <img class="block-1" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
-    <img class="car-1" src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
+    <img class="car-1" id="car-1"  style="display: none;" src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
     <span class="word-1">CASHIER</span>
     <!-- END CASHIER IMAGES -->
 
@@ -145,14 +145,20 @@
 
 
     <!-- BOTTOM LEFT CARS -->
-    <img class="car-9" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-    {{--    <img class="car-10" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">--}}
-    {{--    <img class="car-11" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">--}}
-    {{--    <img class="car-12" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">--}}
+        <img class="car-9"  style="display: none;"  id="car-9" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+
+        <img class="car-10" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+        <img class="car-11" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+        <img class="car-12" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+        <img class="car-13" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+        <img class="car-14" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+        <img class="car-15" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+        <img class="car-16" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+
     {{--    <img class="block-3" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">--}}
 
 
-    <span class="word-2">PRE-MENU</span>
+{{--    <span class="word-2">PRE-MENU</span>--}}
     <div class="inner-main">
         <div class="columns-3">
             <div class="box bg-1">
@@ -238,23 +244,56 @@
 
 <script>
     $(document).ready(function () {
+{{--        $('.car-9').attr('style', 'display:none');--}}
+        let display_car_number = 0;
         $('.right-arrow').on('click', function () {
             // console.log('right-arrow');
             increaseCarCount();
         });
 
+        $('.left-arrow').on('click', function () {
+            // console.log('left-arrow');
+            carLogoutAt();
+        });
+
         function increaseCarCount() {
-            //  clone = $('#form-row').clone().insertBefore('.form-row:last');
-            // name_length = $("input[id='name']").length;
-            // make ajax request
-            $.ajax({
-               type: 'POST' ,
-               url: '{{route('')}}',
-               data: '_token = <?php echo csrf_token() ?>',
-               success:function(data) {
-                  $("#msg").html(data.msg);
-               }
-            });
+            console.log('increaseCarCount');
+            clone = $('#car-9').clone().insertBefore('.car-9:last');
+            cars_count = $("img[id='car-9']").length - 1;
+            display_car_number = cars_count + 8;
+            $('.' + 'car-' + display_car_number ).attr('style', 'display:block');
+            console.log(cars_count);
+{{--            $.ajax({--}}
+{{--               type: 'POST' ,--}}
+{{--               url: '{{route('car.login')}}',--}}
+{{--               data: '_token = <?php echo csrf_token() ?>',--}}
+{{--               success:function(response) {--}}
+{{--                  if (response.status == 200) {--}}
+{{--                    //--}}
+{{--                  }--}}
+{{--               }--}}
+{{--            });--}}
+        };
+
+        function carLogoutAt() {
+            console.log('decreaseCarCount');
+            cars_count = $("img[id='car-9']").length - 1;
+            if(cars_count != 0) {
+                $(".car-9:last").remove();
+                console.log('In Decrease Car Count Function => ' + cars_count);
+                car_class_number = cars_count + 8;
+                $('.' + 'car-' + car_class_number ).attr('style', 'display:none');
+                // Show The Getting Out Car
+                $('.car-1').attr('style', 'display:block');
+                // Make Car Invisible After 3 Seconds
+                var makeCarInvisible = 3000;
+                setTimeout( invisibleCar , makeCarInvisible);
+            }
+        };
+
+        function invisibleCar() {
+            $('.car-1').attr('style', 'display:none');
+        }
     });
 </script>
 </body>

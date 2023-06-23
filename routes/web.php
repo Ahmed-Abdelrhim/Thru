@@ -49,7 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::post('user/store',[UserController::class,'store'])->name('user.store');
 
     //CarController···
-    Route::post('user/store',[CarController::class,'index'])->name('car.index');
+    Route::post('car/login_at',[CarController::class,'loginAt'])->name('car.login');
+    Route::post('car/logout_at',[CarController::class,'logoutAt'])->name('car.logout');
 
 
 });
