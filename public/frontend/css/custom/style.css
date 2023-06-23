@@ -497,3 +497,10 @@ body {
     color: red;
     margin-top: 5px;
 }
+.right-arrow{
+    cursor: pointer;
+}
+
+.left-arrow {
+    cursor: pointer;
+}

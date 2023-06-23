@@ -121,7 +121,7 @@
     </div>
 </nav>
 
-<div class="main">
+<div class="main" >
     <!-- START CASHIER IMAGES -->
     <img class="left-arrow" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}" alt="">
     <img class="right-arrow" src="{{asset('images/dashboard/4dc5a9b3-2f19-4f07-bb91-d47ba4c26760.png')}}" alt="">
