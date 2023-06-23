@@ -10,6 +10,9 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
     <title>Drive-Thru</title>
     <link rel="stylesheet" href="{{asset('frontend/css/custom/style.css')}}"/>
+
+    <link rel="stylesheet" href="{{ asset('frontend/css/iziToast.min.css') }}">
+
 </head>
 <body onload=display_ct6();>
 <!-- navbar -->
@@ -216,6 +219,10 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
 </script>
 
+
+<script src="{{ asset('frontend/js/iziToast.min.js') }}"></script>
+
+
 <script>
     function display_ct6() {
         var x = new Date()
@@ -244,11 +251,10 @@
 
 <script>
     $(document).ready(function () {
-{{--        $('.car-9').attr('style', 'display:none');--}}
         let display_car_number = 0;
         $('.right-arrow').on('click', function () {
             // console.log('right-arrow');
-            increaseCarCount();
+            carLoginAt();
         });
 
         $('.left-arrow').on('click', function () {
@@ -256,24 +262,40 @@
             carLogoutAt();
         });
 
-        function increaseCarCount() {
+        function carLoginAt() {
             console.log('increaseCarCount');
             clone = $('#car-9').clone().insertBefore('.car-9:last');
             cars_count = $("img[id='car-9']").length - 1;
             display_car_number = cars_count + 8;
             $('.' + 'car-' + display_car_number ).attr('style', 'display:block');
             console.log(cars_count);
-{{--            $.ajax({--}}
-{{--               type: 'POST' ,--}}
-{{--               url: '{{route('car.login')}}',--}}
-{{--               data: '_token = <?php echo csrf_token() ?>',--}}
-{{--               success:function(response) {--}}
-{{--                  if (response.status == 200) {--}}
-{{--                    //--}}
-{{--                  }--}}
-{{--               }--}}
-{{--            });--}}
+            makeAjaxRequestForLoginAt();
         };
+
+        function makeAjaxRequestForLoginAt() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+               type: 'POST' ,
+               url: '{{route('car.login')}}',
+               success:function(response) {
+                  if (response.status != 200) {
+                     iziToast.error({
+                        title: 'error',
+                        message: 'Something Went Wrong',
+                        position: 'topRight'
+                    });
+                  }
+               }
+            });
+        };
+
+
+
 
         function carLogoutAt() {
             console.log('decreaseCarCount');
@@ -286,14 +308,46 @@
                 // Show The Getting Out Car
                 $('.car-1').attr('style', 'display:block');
                 // Make Car Invisible After 3 Seconds
+
+                 // $('#left-arrow').off('click');
+                 $('#left-arrow').attr('style','cursor:default');
+
                 var makeCarInvisible = 3000;
                 setTimeout( invisibleCar , makeCarInvisible);
+                makeAjaxRequestForLogoutAt();
             }
         };
 
         function invisibleCar() {
             $('.car-1').attr('style', 'display:none');
+            // $('#left-arrow').on('click');
+            $('#left-arrow').attr('style','cursor:pointer');
         }
+
+
+        function makeAjaxRequestForLogoutAt() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+               type: 'POST' ,
+               url: '{{route('car.logout.at')}}',
+               success:function(response) {
+                  if (response.status != 200) {
+                     iziToast.error({
+                        title: 'error',
+                        message: 'Something Went Wrong',
+                        position: 'topRight'
+                    });
+                  }
+               }
+            });
+        };
+
+
     });
 </script>
 </body>

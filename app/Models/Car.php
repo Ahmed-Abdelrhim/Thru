@@ -9,11 +9,13 @@ class Car extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = ['login_at' , 'logout_at', 'total'];
 
     protected $casts = [
-        'login_at' => 'datetime',
-        'logout_at' => 'datetime',
-        'total' => 'timestamp',
+        'login_at' => 'datetime:d-m-Y H:i:s',
+        'logout_at' => 'datetime:d-m-Y H:i:s',
+        'total' => 'integer',
     ];
 }

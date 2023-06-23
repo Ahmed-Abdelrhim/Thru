@@ -17,8 +17,8 @@ return new class extends Migration
             $table->datetime('login_at');
             // logout can be nullable because the car already entered but may be didn't get out yet so when the car gets out I will log the current time when it's getting out.
             $table->datetime('logout_at')->nullable();
-            // total is the difference between login_at and logout_at per minutes
-            $table->time('total')->nullable();
+            // total is the difference between login_at and logout_at in minutes
+            $table->integer('total')->nullable();
         });
     }
 
