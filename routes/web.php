@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackEnd\CarController;
 use App\Http\Controllers\BackEnd\UserController;
+use App\Http\Controllers\CalculationsController;
 use App\Http\Controllers\ProfileController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -24,10 +25,14 @@ Route::get('/', function () {
     return redirect(RouteServiceProvider::LOGIN);
 });
 
-Route::get('/dashboard', function () {
-    // return view('dashboard');
-    return view('frontend.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    // return view('dashboard');
+//    return view('frontend.index');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [CalculationsController::class,'dashboard'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

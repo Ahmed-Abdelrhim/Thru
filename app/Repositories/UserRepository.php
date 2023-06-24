@@ -16,7 +16,8 @@ class UserRepository implements UserInterface
     public function store($request)
     {
         $rules = [
-            'name' => ['required', 'regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/' , 'max:100'],
+            // 'name' => ['required', 'regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/' , 'max:100'],
+            'name' => ['required', 'string' , 'max:100'],
             'email' => ['required', 'string' , 'email' , 'unique:users,email' , 'max:255'],
             'password' => ['required','string', 'min:8' , 'max:255'],
             'role' => ['required',in_array($request->get('password') , [0,1]) ]

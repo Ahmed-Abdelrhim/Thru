@@ -22,9 +22,12 @@
         <div class="expand_sidebar" id="sidebarOpen">
             <img class="" src="{{asset('images/dashboard/e422b1d1-e9e7-4619-886c-869091f6116a.png')}}" alt="">
         </div>
-        <div class="collapse_sidebar">
-            <img class="" src="{{asset('images/dashboard/e422b1d1-e9e7-4619-886c-869091f6116a.png')}}" alt="">
-        </div>
+
+        @if(auth()->user()->role == 1)
+            <div class="collapse_sidebar">
+                <img class="" src="{{asset('images/dashboard/e422b1d1-e9e7-4619-886c-869091f6116a.png')}}" alt="">
+            </div>
+        @endif
     </div>
 
     <div class="qudra-logo">
@@ -36,68 +39,84 @@
         <p class="date">
             {{ ucwords(Carbon\Carbon::now()->format('F d l')) }}
         </p>
+
+        @if(auth()->user()->role == 0)
+            <a class="logout-user"
+               onclick="event.preventDefault();document.getElementById('logout-form-user').submit();">
+                Logout
+            </a>
+            <form class="d-none" id="logout-form-user" action="{{route('user.logout.form')}}" method="post">
+                @csrf
+            </form>
+        @endif
+
+
     </div>
+
 
 </nav>
 
-<!-- sidebar -->
-<nav class="sidebar">
-    <div class="menu_content">
-        <div class="logo">
-            <img class="" src="{{asset('images/dashboard/a7564dd9-79ac-40de-8d3c-1cf4b741a814.png')}}" alt="">
-        </div>
-        <ul class="menu_items">
-            <li class="item">
-                <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                    <span class="navlink">Average Serving Time</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                    <span class="navlink">Count Of Cars Per Day</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                    <span class="navlink">Count Of Cars Per Hour</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                    <span class="navlink">Average Waiting Time</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                    <span class="navlink">Total Served Cars</span>
-                </a>
-            </li>
+<!-- Start sidebar -->
+@if(auth()->user()->role == 1)
+    <nav class="sidebar">
+        <div class="menu_content">
+            <div class="logo">
+                <img class="" src="{{asset('images/dashboard/a7564dd9-79ac-40de-8d3c-1cf4b741a814.png')}}" alt="">
+            </div>
 
-            <li class="item">
-                <a href="{{route('user.create')}}" class="nav_link">
+
+            <ul class="menu_items">
+                <li class="item">
+                    <a href="#" class="nav_link">
                 <span class="navlink_icon">
                     <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
                 </span>
-                    <span class="navlink">Users</span>
-                </a>
-            </li>
+                        <span class="navlink">Average Serving Time</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                        <span class="navlink">Count Of Cars Per Day</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                        <span class="navlink">Count Of Cars Per Hour</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                        <span class="navlink">Average Waiting Time</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                        <span class="navlink">Total Served Cars</span>
+                    </a>
+                </li>
 
-            <!--
+                <li class="item">
+                    <a href="{{route('user.create')}}" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                        <span class="navlink">Users</span>
+                    </a>
+                </li>
+
+                <!--
                 <li class="item">
                     <a href="{{route('role.index')}}" class="nav_link">
                     <span class="navlink_icon">
@@ -109,32 +128,39 @@
             -->
 
 
-            <div class="bottom_content"
-                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                <div class="bottom">
-                    <img class="" src="{{asset('images/dashboard/Logout.png')}}" alt="">
-                    <span> Logout</span>
+                <div class="bottom_content"
+                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <div class="bottom">
+                        <img class="" src="{{asset('images/dashboard/Logout.png')}}" alt="">
+                        <span> Logout</span>
+                    </div>
                 </div>
-            </div>
 
-            <form class="d-none" id="logout-form" action="{{route('user.logout.form')}}" method="post">
-                @csrf
-            </form>
+                <form class="d-none" id="logout-form" action="{{route('user.logout.form')}}" method="post">
+                    @csrf
+                </form>
 
-    </div>
-</nav>
+        </div>
+    </nav>
+@endif
+<!-- End sidebar -->
 
-<div class="main" >
+<div class="main">
     <!-- START CASHIER IMAGES -->
-    <img class="left-arrow"  id="left-arrow"  src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}" alt="">
-    <img class="right-arrow" id="right-arrow" src="{{asset('images/dashboard/4dc5a9b3-2f19-4f07-bb91-d47ba4c26760.png')}}" alt="">
+    <img class="left-arrow" id="left-arrow" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}"
+         alt="">
+    <img class="right-arrow" id="right-arrow"
+         src="{{asset('images/dashboard/4dc5a9b3-2f19-4f07-bb91-d47ba4c26760.png')}}" alt="">
     <img class="block-1" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
-    <img class="car-1" id="car-1"  style="display: none;" src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
+    <img class="car-1" id="car-1" style="display: none;"
+         src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
     <span class="word-1">CASHIER</span>
     <!-- END CASHIER IMAGES -->
 
     <img class="block-2" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
-    <img class="car-2" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
+    {{--    <img class="car-2" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">--}}
+
+
     <!-- TOP RIGHT CARS -->
     {{--    <img class="car-3" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">     --}}
     {{--    <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">     --}}
@@ -143,30 +169,46 @@
 
 
     <!-- CENTER RIGHT CARS -->
-    <img class="car-7" src="{{asset('images/dashboard/83555579-5394-48a5-b459-86d754e5f329.png')}}" alt="">
-    {{--    <img class="car-8" src="{{asset('images/dashboard/199a5fee-7daa-4de2-89fd-ce51b1efd602.png')}}" alt=""> --}}
+    {{--    <img class="car-7" src="{{asset('images/dashboard/83555579-5394-48a5-b459-86d754e5f329.png')}}" alt="">--}}
+    {{--    <img class="car-8" src="{{asset('images/dashboard/199a5fee-7daa-4de2-89fd-ce51b1efd602.png')}}" alt="">--}}
 
 
     <!-- BOTTOM LEFT CARS -->
-        <img class="car-9"  style="display: none;"  id="car-9" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-9" style="display: none;" id="car-9"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
 
-        <img class="car-10" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-        <img class="car-11" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-        <img class="car-12" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-        <img class="car-13" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-        <img class="car-14" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-        <img class="car-15" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
-        <img class="car-16" style="display: none;" src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-10" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-11" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-12" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-13" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-14" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-15" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
+    <img class="car-16" style="display: none;"
+         src="{{asset('images/dashboard/876c14c3-ca08-4d8b-acd0-26a7cdb38248.png')}}" alt="">
 
     {{--    <img class="block-3" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">--}}
 
 
-{{--    <span class="word-2">PRE-MENU</span>--}}
+    {{--    <span class="word-2">PRE-MENU</span>--}}
     <div class="inner-main">
         <div class="columns-3">
             <div class="box bg-1">
                 <p class="head">Average Serving Time</p>
-                <h2 style="color:#689552">95</h2>
+                <h2 style="color:#689552">
+                    @if(isset($avgServingTime))
+                        {{$avgServingTime}}
+                    @else
+                        45
+                        {{-- 95 --}}
+                    @endif
+
+                </h2>
                 <div class="list">
                     <div class="list-1">
                         <p>Prev</p>
@@ -188,11 +230,24 @@
             </div>
             <div class="box bg-2">
                 <p class="head">Count Of Cars / Day</p>
-                <h2 style="color:#689552">400</h2>
+                <h2 style="color:#689552" id="count-cars-per-day">
+                    @if(isset($carsCount))
+                        {{$carsCount}}
+                    @else
+                        400
+                    @endif
+                </h2>
             </div>
             <div class="box bg-3">
                 <p class="head">Count Of Cars / Hr</p>
-                <h2 style="color:#689552">40</h2>
+                <h2 style="color:#689552" id="count-cars-per-hour">
+                    @if(isset($carsCountPerHour))
+                        {{ $carsCountPerHour }}
+                    @else
+                        40
+                    @endif
+
+                </h2>
             </div>
         </div>
         <div class="columns-3">
@@ -208,7 +263,13 @@
             </div>
             <div class="box bg-3">
                 <p class="head">Total Served Cars</p>
-                <h2 style="color:#A97C50">350</h2>
+                <h2 style="color:#A97C50" id="total-served-cars">
+                    @if(isset($totalServedCars))
+                        {{$totalServedCars}}
+                    @else
+                        350
+                    @endif
+                </h2>
             </div>
         </div>
     </div>
@@ -247,6 +308,9 @@
     }
 
     display_c6();
+
+
+
 </script>
 
 <script>
@@ -343,22 +407,37 @@
                         position: 'topRight'
                     });
                   }
+                  if(response.status == 200) {
+                    incrementCountByOne();
+                  }
                }
             });
         };
 
+        function incrementCountByOne() {
+            // Here Increase Count Of Cars / Day By One
+            let countOfCars = $('#count-cars-per-day').text().trim();
+            countOfCarsAfterIncreaseByOne = parseInt(countOfCars) + 1 ;
+            $('#count-cars-per-day').html('');
+            $('#count-cars-per-day').text(countOfCarsAfterIncreaseByOne);
+
+            // Here Increase Count Of Cars / Hr By One
+            let countOfCarsPerHour = $('#count-cars-per-hour').text().trim();
+            countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1 ;
+            $('#count-cars-per-hour').html('');
+            $('#count-cars-per-hour').text(countOfCarsPerHourAfterIncreaseByOne);
+
+            // Here Increase Total Served Cars By One
+            let totalServedCars = $('#total-served-cars').text().trim();
+            totalServedCarsAfterIncreaseByOne = parseInt(totalServedCars) + 1 ;
+            $('#total-served-cars').html('');
+            $('#total-served-cars').text(totalServedCarsAfterIncreaseByOne);
+        };
 
     });
+
+
+
 </script>
 </body>
 </html>
-
-
-{{--    $(window).on('load', function () {--}}
-{{--        if (feather) {--}}
-{{--            feather.replace({--}}
-{{--                width: 14,--}}
-{{--                height: 14--}}
-{{--            });--}}
-{{--        }--}}
-{{--    })--}}

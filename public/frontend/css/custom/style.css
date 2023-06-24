@@ -94,6 +94,24 @@ body {
     letter-spacing: 0px;
     color: #252F49;
 }
+
+
+.data-time .logout-user {
+    position: absolute;
+    left: 1400px;
+    top: -15px;
+    width: 130px;
+    height: 30px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #252F49;
+    cursor: pointer;
+}
+
+
+
 /* sidebar */
 .sidebar {
     background: #4C556B 0% 0% no-repeat padding-box;
