@@ -173,7 +173,7 @@
 
 
     <!-- TOP RIGHT CARS -->
-        <img class="car-3" style="display:none;" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
+        <img class="car-3" id="car-3" style="display:none;" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
 {{--        <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 {{--        <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 {{--        <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
@@ -386,7 +386,10 @@
         function carLogoutAt() {
             console.log('decreaseCarCount');
             cars_count = $("img[id='car-9']").length - 1;
-            if(cars_count != 0) {
+
+            let isVisible = $("#car-3").is(":visible");
+
+            if(cars_count != 0 && isVisible ) {
                 $(".car-9:last").remove();
                 console.log('In Decrease Car Count Function => ' + cars_count);
                 car_class_number = cars_count + 8;
