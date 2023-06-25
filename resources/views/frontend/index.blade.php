@@ -163,7 +163,7 @@
          src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
     <span class="word-1">CASHIER</span>
 
-    <img class="left-arrow-img" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}"
+    <img class="left-arrow-img" id="left-arrow-img" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}"
          alt="">
 
     <!-- END CASHIER IMAGES -->
@@ -173,7 +173,7 @@
 
 
     <!-- TOP RIGHT CARS -->
-{{--        <img class="car-3" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">--}}
+        <img class="car-3" style="display: none" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
 {{--        <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 {{--        <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 {{--        <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
@@ -338,6 +338,14 @@
             carLogoutAt();
         });
 
+        $('.left-arrow-img').on('click', function () {
+            cars_count = $("img[id='car-9']").length - 1;
+            if(cars_count != 0) {
+                $('.car-3').attr('style', 'display:block');
+            }
+        });
+
+
         function carLoginAt() {
             console.log('increaseCarCount');
             clone = $('#car-9').clone().insertBefore('.car-9:last');
@@ -387,6 +395,7 @@
 
                  // $('#left-arrow').off('click');
                  $('#left-arrow').attr('style','cursor:default');
+                 $('.car-3').attr('style', 'display:none');
 
                 var makeCarInvisible = 3000;
                 setTimeout( invisibleCar , makeCarInvisible);
