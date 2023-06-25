@@ -18,7 +18,6 @@ class CalculationsController extends Controller
             [
                 now()->subHours(1),
                 now(),
-
             ])
             ->count();
 
