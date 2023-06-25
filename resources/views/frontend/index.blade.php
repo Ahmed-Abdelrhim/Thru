@@ -173,7 +173,7 @@
 
 
     <!-- TOP RIGHT CARS -->
-        <img class="car-3"  src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
+        <img class="car-3" style="display:none;" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
 {{--        <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 {{--        <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 {{--        <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
@@ -342,6 +342,8 @@
             cars_count = $("img[id='car-9']").length - 1;
             if(cars_count != 0) {
                 $('.car-3').attr('style', 'display:block');
+                car_class_number = cars_count + 8;
+                $('.' + 'car-' + car_class_number ).attr('style', 'display:none');
             }
         });
 
