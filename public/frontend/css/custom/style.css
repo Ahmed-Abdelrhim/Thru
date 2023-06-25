@@ -311,6 +311,13 @@ body {
     left: 25px;
 }
 
+.left-arrow-img {
+    position: absolute;
+    top: -65px;
+    left: 330px;
+    cursor: pointer;
+}
+
 .right-arrow {
     position: absolute;
     bottom: -65px;

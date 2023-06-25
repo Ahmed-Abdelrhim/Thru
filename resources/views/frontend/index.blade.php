@@ -162,6 +162,10 @@
     <img class="car-1" id="car-1" style="display: none;"
          src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
     <span class="word-1">CASHIER</span>
+
+    <img class="left-arrow-img" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}"
+         alt="">
+
     <!-- END CASHIER IMAGES -->
 
     <img class="block-2" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
