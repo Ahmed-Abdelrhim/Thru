@@ -314,7 +314,7 @@ body {
 .left-arrow-img {
     position: absolute;
     top: -65px;
-    left: 330px;
+    left: 550px;
     cursor: pointer;
 }
 
@@ -342,20 +342,42 @@ body {
     left: 165px;
 }
 
+/*.word-1 {*/
+/*    position: absolute;*/
+/*    top: -60px;*/
+/*    left: 450px;*/
+/*    width: 85px;*/
+/*    height: 25px;*/
+/*    color: #DFDFDF;*/
+/*}*/
+
+
 .word-1 {
     position: absolute;
     top: -60px;
-    left: 450px;
+    left: 475px;
     width: 85px;
     height: 25px;
     color: #DFDFDF;
 }
 
+
+
+
+/*.block-2 {*/
+/*    position: absolute;*/
+/*    top: -96px;*/
+/*    left: 540px;*/
+/*}*/
+
 .block-2 {
     position: absolute;
     top: -96px;
-    left: 540px;
+    left: 665px;
 }
+
+
+
 
 .car-2 {
     position: absolute;
