@@ -151,6 +151,13 @@
          alt="">
     <img class="right-arrow" id="right-arrow"
          src="{{asset('images/dashboard/4dc5a9b3-2f19-4f07-bb91-d47ba4c26760.png')}}" alt="">
+
+
+    <img class="right-arrow-img" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
+
+
+
+
     <img class="block-1" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
     <img class="car-1" id="car-1" style="display: none;"
          src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">

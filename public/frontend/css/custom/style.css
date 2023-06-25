@@ -317,6 +317,12 @@ body {
     left: 25px;
 }
 
+.right-arrow-img {
+    position: absolute;
+    bottom: -96px;
+    left: 140px;
+}
+
 .block-1 {
     position: absolute;
     top: -96px;
