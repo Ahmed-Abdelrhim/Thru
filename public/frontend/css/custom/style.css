@@ -368,6 +368,13 @@ body {
     top: -60px;
     left: 680px;
 }
+
+.car-20 {
+    position: absolute;
+    top: -60px;
+    left: 560px;
+}
+
 .car-4 {
     position: absolute;
     top: -60px;
@@ -383,6 +390,7 @@ body {
     top: -60px;
     left: 1050px;
 }
+
 .car-7 {
     position: fixed;
     top: 350px;
