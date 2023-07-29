@@ -57,7 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::post('car/login_at',[CarController::class,'loginAt'])->name('car.login');
     Route::post('car/logout_at',[CarController::class,'logoutAt'])->name('car.logout.at');
 
-    Route::get('playing',[CarController::class,'logoutAt']);
+    Route::get('playing',[CarController::class,'logoutAt']); 
+    Route::get('playing',[CarController::class,'logoutAt']); 
 
 
 
