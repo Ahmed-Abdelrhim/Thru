@@ -27,9 +27,12 @@ class CalcController extends Controller
         if (count($cars) === 0) {
             return response()->json(['message' => 'There are no cars logged in inside the system right now '],200);
         }
-        $cars[0]->logout_at = Carbon::now();
+
+        $now = Carbon::now();
+        $totalServedTimeForCar = Carbon::parse($cars[0]->login_at)->diffInMinutes($now);
+        $cars[0]->logout_at = $now;
+        $cars[0]->total = $totalServedTimeForCar;
         $cars[0]->save();
         return response()->json(['message' => 'Success Transaction'],200);
-        // return response()->json(['data' => $cars],200);
     }
 }
