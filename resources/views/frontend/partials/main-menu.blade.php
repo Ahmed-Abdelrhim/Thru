@@ -56,26 +56,28 @@
                     </span></a>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i class="fa-regular fa-circle" style="color: white"></i>
-                    <span class="menu-title text-truncate li-color" data-i18n="Email">
-                        Count Of Cars Per Hour
-                    </span></a>
-            </li>
+{{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#">--}}
+{{--                    <i class="fa-regular fa-circle" style="color: white"></i>--}}
+{{--                    <span class="menu-title text-truncate li-color" data-i18n="Email">--}}
+{{--                        Count Of Cars Per Hour--}}
+{{--                    </span></a>--}}
+{{--            </li>--}}
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i class="fa-regular fa-circle" style="color: white"></i>
-                    <span class="menu-title text-truncate li-color" data-i18n="Email">
-                       Average Waiting Time
-                    </span></a>
-            </li>
+{{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#">--}}
+{{--                    <i class="fa-regular fa-circle" style="color: white"></i>--}}
+{{--                    <span class="menu-title text-truncate li-color" data-i18n="Email">--}}
+{{--                       Average Waiting Time--}}
+{{--                    </span></a>--}}
+{{--            </li>--}}
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i class="fa-regular fa-circle" style="color: white"></i>
-                    <span class="menu-title text-truncate li-color" data-i18n="Email">
-                       Total Served Cars
-                    </span></a>
-            </li>
+{{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#">--}}
+{{--                    <i class="fa-regular fa-circle" style="color: white"></i>--}}
+{{--                    <span class="menu-title text-truncate li-color" data-i18n="Email">--}}
+{{--                       Total Served Cars--}}
+{{--                    </span></a>--}}
+{{--            </li>--}}
+
+
         </ul>
 
         <div class="logout" style="margin-top: 82%; margin-left: 6%;">
