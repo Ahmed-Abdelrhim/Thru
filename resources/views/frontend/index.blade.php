@@ -90,31 +90,31 @@
                         <span class="navlink">Count Of Cars Per Hour</span>
                     </a>
                 </li>
-                <li class="item">
-                    <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                        <span class="navlink">Average Waiting Time</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a href="#" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                        <span class="navlink">Total Served Cars</span>
-                    </a>
-                </li>
+{{--                <li class="item">--}}
+{{--                    <a href="#" class="nav_link">--}}
+{{--                <span class="navlink_icon">--}}
+{{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
+{{--                </span>--}}
+{{--                        <span class="navlink">Average Waiting Time</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="item">--}}
+{{--                    <a href="#" class="nav_link">--}}
+{{--                <span class="navlink_icon">--}}
+{{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
+{{--                </span>--}}
+{{--                        <span class="navlink">Total Served Cars</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
-                <li class="item">
-                    <a href="{{route('user.create')}}" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
-                        <span class="navlink">Users</span>
-                    </a>
-                </li>
+{{--                <li class="item">--}}
+{{--                    <a href="{{route('user.create')}}" class="nav_link">--}}
+{{--                <span class="navlink_icon">--}}
+{{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
+{{--                </span>--}}
+{{--                        <span class="navlink">Users</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <!--
                 <li class="item">
