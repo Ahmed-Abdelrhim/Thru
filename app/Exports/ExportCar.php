@@ -13,6 +13,7 @@ class ExportCar implements FromView
     {
         $cars = Car::query()
             ->select('login_at', 'logout_at', 'total')
+            ->whereNotNull('logout_at')
             ->get();
         return view('export-cars', ['cars' => $cars]);
 
