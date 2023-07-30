@@ -49,16 +49,22 @@ Route::middleware('auth')->group(function () {
     Route::post('Role/Delete/{id}', [RoleController::class,'destroy'])->name('role.delete');
 
     //UserController···
-    Route::get('user',[UserController::class,'index'])->name('user.index');
-    Route::get('user/create',[UserController::class,'create'])->name('user.create');
-    Route::post('user/store',[UserController::class,'store'])->name('user.store');
+    Route::get('user',         [UserController::class,'index'])->name('user.index');
+    Route::get('user/create',  [UserController::class,'create'])->name('user.create');
+    Route::post('user/store',  [UserController::class,'store'])->name('user.store');
 
     //CarController···
-    Route::post('car/login_at',[CarController::class,'loginAt'])->name('car.login');
-    Route::post('car/logout_at',[CarController::class,'logoutAt'])->name('car.logout.at');
+    Route::post('car/login_at',  [CarController::class,'loginAt'])->name('car.login');
+    Route::post('car/logout_at', [CarController::class,'logoutAt'])->name('car.logout.at');
+    Route::get('export-cars',    [CarController::class, 'exportCars'])->name('export-cars');
+    Route::get('view',           [CarController::class, 'view']);
+
 
     Route::get('playing',[CarController::class,'logoutAt']);
     Route::get('playing',[CarController::class,'logoutAt']);
+
+
 });
 Route::post('user/logout/form',[ProfileController::class,'userLogout'])->name('user.logout.form');
 require __DIR__.'/auth.php';
+

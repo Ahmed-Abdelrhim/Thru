@@ -67,7 +67,7 @@
 
             <ul class="menu_items">
                 <li class="item">
-                    <a href="#" class="nav_link">
+                    <a href="{{route('export-cars')}}" class="nav_link">
                 <span class="navlink_icon">
                     <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
                 </span>
@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a href="#" class="nav_link">
+                    <a href="{{route('export-cars')}}" class="nav_link">
                 <span class="navlink_icon">
                     <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
                 </span>
@@ -212,7 +212,11 @@
     <div class="inner-main">
         <div class="columns-3">
             <div class="box bg-1">
-                <p class="head">Average Serving Time</p>
+                <p class="head">
+{{--                    <a href="{{route('export-cars')}}">--}}
+                        Average Serving Time
+{{--                    </a>--}}
+                </p>
                 <h2 style="color:#689552">
                     @if(isset($avgServingTime))
                         {{$avgServingTime}}
@@ -467,4 +471,6 @@
 
 </script>
 </body>
+
+
 </html>
