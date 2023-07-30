@@ -47,7 +47,7 @@ class CarController extends Controller
         return Excel::download(new ExportCar, 'cars.xlsx');
     }
 
-    public function exportCountOfCarsPerDay(Request $request)
+    public function exportCountOfCarsPerDay(Request $request): BinaryFileResponse
     {
         return Excel::download(new ExportCountOfCarsPerDay, 'count-of-cars-per-day.xlsx');
     }

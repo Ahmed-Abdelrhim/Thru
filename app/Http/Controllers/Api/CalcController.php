@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\CarGetInEvent;
+use App\Events\CarGetOutEvent;
 use App\Http\Controllers\Controller;
+use App\Jobs\CarGetInJob;
 use App\Models\Car;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -10,15 +13,19 @@ use Illuminate\Support\Carbon;
 
 class CalcController extends Controller
 {
-    public function carGetIn(Request $request): JsonResponse
+    public function carGetIn(Request $request)
     {
         $car_get_in = Car::query()->create([
             'login_at' => Carbon::now(),
         ]);
+
+        // Todo Broadcast the event
+        $countOfCars = Car::query()->count();
+        broadcast(new CarGetInEvent($countOfCars))->toOthers();
         return response()->json(['message' => 'Success Transaction'],200);
     }
 
-    public function carGetOut(Request $request): JsonResponse
+    public function carGetOut(Request $request)
     {
         $cars = Car::query()
             ->where('logout_at', null)
@@ -33,6 +40,9 @@ class CalcController extends Controller
         $cars[0]->logout_at = $now;
         $cars[0]->total = $totalServedTimeForCar;
         $cars[0]->save();
+
+        // Todo dispatch CarGetIn Job
+        broadcast(new CarGetOutEvent($countOfCars))->toOthers();
         return response()->json(['message' => 'Success Transaction'],200);
     }
 }
