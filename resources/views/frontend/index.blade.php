@@ -75,38 +75,38 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a href="{{route('export-cars')}}" class="nav_link">
-                <span class="navlink_icon">
-                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
-                </span>
+                    <a href="{{route('count-cars-per-day-export')}}" class="nav_link">
+                        <span class="navlink_icon">
+                            <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                        </span>
                         <span class="navlink">Count Of Cars Per Day</span>
                     </a>
                 </li>
-{{--                <li class="item">--}}
-{{--                    <a href="#" class="nav_link">--}}
-{{--                <span class="navlink_icon">--}}
-{{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
-{{--                </span>--}}
-{{--                        <span class="navlink">Count Of Cars Per Hour</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                {{--                <li class="item">--}}
+                {{--                    <a href="#" class="nav_link">--}}
+                {{--                <span class="navlink_icon">--}}
+                {{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
+                {{--                </span>--}}
+                {{--                        <span class="navlink">Count Of Cars Per Hour</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
 
-{{--                <li class="item">--}}
-{{--                    <a href="#" class="nav_link">--}}
-{{--                <span class="navlink_icon">--}}
-{{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
-{{--                </span>--}}
-{{--                        <span class="navlink">Average Waiting Time</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="item">--}}
-{{--                    <a href="#" class="nav_link">--}}
-{{--                <span class="navlink_icon">--}}
-{{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
-{{--                </span>--}}
-{{--                        <span class="navlink">Total Served Cars</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                {{--                <li class="item">--}}
+                {{--                    <a href="#" class="nav_link">--}}
+                {{--                <span class="navlink_icon">--}}
+                {{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
+                {{--                </span>--}}
+                {{--                        <span class="navlink">Average Waiting Time</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
+                {{--                <li class="item">--}}
+                {{--                    <a href="#" class="nav_link">--}}
+                {{--                <span class="navlink_icon">--}}
+                {{--                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">--}}
+                {{--                </span>--}}
+                {{--                        <span class="navlink">Total Served Cars</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
 
                 <li class="item">
                     <a href="{{route('user.create')}}" class="nav_link">
@@ -157,14 +157,13 @@
     <img class="right-arrow-img" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
 
 
-
-
     <img class="block-1" src="{{asset('images/dashboard/7a440a85-5b42-419d-9ccc-fb39f31b57d5.png')}}" alt="">
     <img class="car-1" id="car-1" style="display: none;"
          src="{{asset('images/dashboard/42cd8f47-ae12-474b-933b-40ad4b367db4.png')}}" alt="">
     <span class="word-1">CASHIER</span>
 
-    <img class="left-arrow-img" id="left-arrow-img" src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}"
+    <img class="left-arrow-img" id="left-arrow-img"
+         src="{{asset('images/dashboard/0a3b996d-fc85-405b-86f4-31f3e1641813.png')}}"
          alt="">
 
     <!-- END CASHIER IMAGES -->
@@ -174,11 +173,12 @@
 
 
     <!-- TOP RIGHT CARS -->
-        <img class="car-3" id="car-3" style="display:none;" src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
-{{--        <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
-{{--        <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
-{{--        <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
-{{--        <img class="car-20" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
+    <img class="car-3" id="car-3" style="display:none;"
+         src="{{asset('images/dashboard/be035fa7-72e8-4c4e-9a6d-535892e93606.png')}}" alt="">
+    {{--        <img class="car-4" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
+    {{--        <img class="car-5" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
+    {{--        <img class="car-6" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
+    {{--        <img class="car-20" src="{{asset('images/dashboard/85ae1435-4b89-421f-bdcc-8e8c501d1645.png')}}" alt="">--}}
 
 
     <!-- CENTER RIGHT CARS -->
@@ -213,9 +213,9 @@
         <div class="columns-3">
             <div class="box bg-1">
                 <p class="head">
-{{--                    <a href="{{route('export-cars')}}">--}}
-                        Average Serving Time
-{{--                    </a>--}}
+                    {{--                    <a href="{{route('export-cars')}}">--}}
+                    Average Serving Time
+                    {{--                    </a>--}}
                 </p>
                 <h2 style="color:#689552">
                     @if(isset($avgServingTime))
@@ -327,7 +327,6 @@
     display_c6();
 
 
-
 </script>
 
 <script>
@@ -345,10 +344,10 @@
 
         $('.left-arrow-img').on('click', function () {
             cars_count = $("img[id='car-9']").length - 1;
-            if(cars_count != 0) {
+            if (cars_count != 0) {
                 $('.car-3').attr('style', 'display:block');
                 car_class_number = cars_count + 8;
-                $('.' + 'car-' + car_class_number ).attr('style', 'display:none');
+                $('.' + 'car-' + car_class_number).attr('style', 'display:none');
             }
         });
 
@@ -358,7 +357,7 @@
             clone = $('#car-9').clone().insertBefore('.car-9:last');
             cars_count = $("img[id='car-9']").length - 1;
             display_car_number = cars_count + 8;
-            $('.' + 'car-' + display_car_number ).attr('style', 'display:block');
+            $('.' + 'car-' + display_car_number).attr('style', 'display:block');
             console.log(cars_count);
             makeAjaxRequestForLoginAt();
         };
@@ -371,21 +370,19 @@
             });
 
             $.ajax({
-               type: 'POST' ,
-               url: '{{route('car.login')}}',
-               success:function(response) {
-                  if (response.status != 200) {
-                     iziToast.error({
-                        title: 'error',
-                        message: 'Something Went Wrong',
-                        position: 'topRight'
-                    });
-                  }
-               }
+                type: 'POST',
+                url: '{{route('car.login')}}',
+                success: function (response) {
+                    if (response.status != 200) {
+                        iziToast.error({
+                            title: 'error',
+                            message: 'Something Went Wrong',
+                            position: 'topRight'
+                        });
+                    }
+                }
             });
         };
-
-
 
 
         function carLogoutAt() {
@@ -394,21 +391,21 @@
 
             let isVisible = $("#car-3").is(":visible");
 
-            if(cars_count != 0 && isVisible ) {
+            if (cars_count != 0 && isVisible) {
                 $(".car-9:last").remove();
                 console.log('In Decrease Car Count Function => ' + cars_count);
                 car_class_number = cars_count + 8;
-                $('.' + 'car-' + car_class_number ).attr('style', 'display:none');
+                $('.' + 'car-' + car_class_number).attr('style', 'display:none');
                 // Show The Getting Out Car
                 $('.car-1').attr('style', 'display:block');
                 // Make Car Invisible After 3 Seconds
 
-                 // $('#left-arrow').off('click');
-                 $('#left-arrow').attr('style','cursor:default');
-                 $('.car-3').attr('style', 'display:none');
+                // $('#left-arrow').off('click');
+                $('#left-arrow').attr('style', 'cursor:default');
+                $('.car-3').attr('style', 'display:none');
 
                 var makeCarInvisible = 3000;
-                setTimeout( invisibleCar , makeCarInvisible);
+                setTimeout(invisibleCar, makeCarInvisible);
                 makeAjaxRequestForLogoutAt();
             }
         };
@@ -416,7 +413,7 @@
         function invisibleCar() {
             $('.car-1').attr('style', 'display:none');
             // $('#left-arrow').on('click');
-            $('#left-arrow').attr('style','cursor:pointer');
+            $('#left-arrow').attr('style', 'cursor:pointer');
         }
 
 
@@ -428,45 +425,44 @@
             });
 
             $.ajax({
-               type: 'POST' ,
-               url: '{{route('car.logout.at')}}',
-               success:function(response) {
-                  if (response.status != 200) {
-                     iziToast.error({
-                        title: 'error',
-                        message: 'Something Went Wrong',
-                        position: 'topRight'
-                    });
-                  }
-                  if(response.status == 200) {
-                    incrementCountByOne();
-                  }
-               }
+                type: 'POST',
+                url: '{{route('car.logout.at')}}',
+                success: function (response) {
+                    if (response.status != 200) {
+                        iziToast.error({
+                            title: 'error',
+                            message: 'Something Went Wrong',
+                            position: 'topRight'
+                        });
+                    }
+                    if (response.status == 200) {
+                        incrementCountByOne();
+                    }
+                }
             });
         };
 
         function incrementCountByOne() {
             // Here Increase Count Of Cars / Day By One
             let countOfCars = $('#count-cars-per-day').text().trim();
-            countOfCarsAfterIncreaseByOne = parseInt(countOfCars) + 1 ;
+            countOfCarsAfterIncreaseByOne = parseInt(countOfCars) + 1;
             $('#count-cars-per-day').html('');
             $('#count-cars-per-day').text(countOfCarsAfterIncreaseByOne);
 
             // Here Increase Count Of Cars / Hr By One
             let countOfCarsPerHour = $('#count-cars-per-hour').text().trim();
-            countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1 ;
+            countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1;
             $('#count-cars-per-hour').html('');
             $('#count-cars-per-hour').text(countOfCarsPerHourAfterIncreaseByOne);
 
             // Here Increase Total Served Cars By One
             let totalServedCars = $('#total-served-cars').text().trim();
-            totalServedCarsAfterIncreaseByOne = parseInt(totalServedCars) + 1 ;
+            totalServedCarsAfterIncreaseByOne = parseInt(totalServedCars) + 1;
             $('#total-served-cars').html('');
             $('#total-served-cars').text(totalServedCarsAfterIncreaseByOne);
         };
 
     });
-
 
 
 </script>

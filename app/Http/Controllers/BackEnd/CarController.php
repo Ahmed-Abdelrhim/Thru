@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BackEnd;
 
 use App\Exports\ExportCar;
+use App\Exports\ExportCountOfCarsPerDay;
 use App\Http\Controllers\Controller;
 use App\Models\Car;
 use Illuminate\Http\JsonResponse;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class CarController extends Controller
 {
@@ -40,13 +42,23 @@ class CarController extends Controller
         return response()->json(['status' => 200]);
     }
 
-    public function exportCars(Request $request)
+    public function exportCars(Request $request): BinaryFileResponse
     {
         return Excel::download(new ExportCar, 'cars.xlsx');
     }
 
+    public function exportCountOfCarsPerDay(Request $request)
+    {
+        return Excel::download(new ExportCountOfCarsPerDay, 'count-of-cars-per-day.xlsx');
+    }
+
     public function view()
     {
-        return view('export-cars');
+        return $cars = Car::query()
+            ->select('login_at', 'logout_at', 'total')
+            ->whereRaw('Date(login_at) = CURDATE()')
+            ->whereNotNull('logout_at')
+            ->get();
+        // return view('export-cars');
     }
 }

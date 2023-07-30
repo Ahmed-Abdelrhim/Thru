@@ -34,7 +34,6 @@
                 <td>
                     {{$car->total}}
                 </td>
-
             </tr>
         @endforeach
         </tbody>
