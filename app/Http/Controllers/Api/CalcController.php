@@ -42,7 +42,7 @@ class CalcController extends Controller
         $cars[0]->save();
 
         // Todo dispatch CarGetIn Job
-        broadcast(new CarGetOutEvent($countOfCars))->toOthers();
+        // broadcast(new CarGetOutEvent($countOfCars))->toOthers();
         return response()->json(['message' => 'Success Transaction'],200);
     }
 }

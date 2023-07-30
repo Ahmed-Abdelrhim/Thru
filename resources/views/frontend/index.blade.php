@@ -302,30 +302,6 @@
 
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
-
-<script>
-    // Initialize Pusher with your credentials
-    const pusher = new Pusher('33e49c17d20f548b9f47', {
-        cluster: 'eu',
-        // Additional options if required
-    });
-
-    // Subscribe to the channel where the events are broadcasted
-    const channel = pusher.subscribe('car-get-in-channel');
-
-    // Listen for the CarEnteredDriveThru event
-    channel.bind('App\\Events\\CarGetInEvent', function(data) {
-        // Update the UI with the new countOfCars without refreshing the page
-        document.getElementById('count-of-cars').innerText = data.countOfCars;
-    });
-</script>
-
-
-
-
-
-
-
 <script>
     function display_ct6() {
         var x = new Date()
@@ -491,6 +467,24 @@
 
 
 </script>
+
+<script>
+    // Initialize Pusher with your credentials
+    const pusher = new Pusher('33e49c17d20f548b9f47', {
+        cluster: 'eu',
+        // Additional options if required
+    });
+
+    // Subscribe to the channel where the events are broadcasted
+    const channel = pusher.subscribe('car-get-in-channel');
+
+    // Listen for the CarEnteredDriveThru event
+    channel.bind('App\\Events\\CarGetInEvent', function(data) {
+        // Update the UI with the new countOfCars without refreshing the page
+        document.getElementById('total-served-cars').innerText = data.countOfCars;
+    });
+</script>
+
 </body>
 
 
