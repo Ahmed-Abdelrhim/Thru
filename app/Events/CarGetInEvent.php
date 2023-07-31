@@ -30,10 +30,7 @@ class CarGetInEvent implements ShouldBroadcastNow
      */
     public function broadcastOn(): array
     {
-        return [
-            'car-get-in-channel'
-            // new PrivateChannel('channel-name'),
-        ];
+        return ['car-get-in-channel'];
     }
 
     public function broadcastAs(): string

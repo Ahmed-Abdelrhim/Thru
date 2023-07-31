@@ -482,7 +482,23 @@
     // channel.bind('App\\Events\\CarGetInEvent', function(data) {
     channel.bind('carIn', function(data) {
         // Update the UI with the new countOfCars without refreshing the page
+        // TODO => Update count of Total Served Cars
         document.getElementById('total-served-cars').innerText = data.countOfCars;
+
+        // TODO => Increase count of cars per day by one
+        let countOfCarsPerDay = document.getElementById('count-cars-per-day').textContent.trim();
+        let countOfCarsAfterIncreaseByOne = parseInt(countOfCarsPerDay) + 1;
+        document.getElementById('count-cars-per-day').innerHTML = '';
+        document.getElementById('count-cars-per-day').innerText = String(countOfCarsAfterIncreaseByOne);
+
+        // TODO => Increase count of cars per hour by one
+        let countOfCarsPerHour = document.getElementById('count-cars-per-hour').textContent.trim();
+        let countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1;
+        document.getElementById('count-cars-per-hour').innerHTML = '';
+        document.getElementById('count-cars-per-hour').innerText = String(countOfCarsPerHourAfterIncreaseByOne);
+
+
+
     });
 </script>
 
