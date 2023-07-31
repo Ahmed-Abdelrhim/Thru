@@ -54,12 +54,15 @@ class CarController extends Controller
 
     public function view()
     {
+        $date = "Server's current time: " . date('Y-m-d H:i:s') . "<br>";
+        $timezone = "Server's timezone: " . date_default_timezone_get();
+        return 'Data => ' . $date . '<br>' . 'TimeZone => ' . $timezone . '<br>';
         // return $cars = Car::query()->count();
-        return $cars = Car::query()
-            ->select('login_at', 'logout_at', 'total')
-            ->whereRaw('Date(login_at) = CURDATE()')
-            ->whereNotNull('logout_at')
-            ->get();
+        //        return $cars = Car::query()
+        //            ->select('login_at', 'logout_at', 'total')
+        //            ->whereRaw('Date(login_at) = CURDATE()')
+        //            ->whereNotNull('logout_at')
+        //            ->get();
         // return view('export-cars');
     }
 }

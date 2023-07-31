@@ -35,4 +35,10 @@ class CarGetInEvent implements ShouldBroadcastNow
             // new PrivateChannel('channel-name'),
         ];
     }
+
+    public function broadcastAs(): string
+    {
+        return 'carIn';
+    }
+
 }

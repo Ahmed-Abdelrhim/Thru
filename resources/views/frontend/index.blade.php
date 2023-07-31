@@ -479,7 +479,8 @@
     const channel = pusher.subscribe('car-get-in-channel');
 
     // Listen for the CarEnteredDriveThru event
-    channel.bind('App\\Events\\CarGetInEvent', function(data) {
+    // channel.bind('App\\Events\\CarGetInEvent', function(data) {
+    channel.bind('carIn', function(data) {
         // Update the UI with the new countOfCars without refreshing the page
         document.getElementById('total-served-cars').innerText = data.countOfCars;
     });
