@@ -360,8 +360,8 @@
             display_car_number = cars_count + 8;
             $('.' + 'car-' + display_car_number).attr('style', 'display:block');
             console.log(cars_count);
-            makeAjaxRequestForLoginAt();
-        };
+            // makeAjaxRequestForLoginAt();
+        }
 
         function makeAjaxRequestForLoginAt() {
             $.ajaxSetup({
@@ -497,6 +497,37 @@
         document.getElementById('count-cars-per-hour').innerHTML = '';
         document.getElementById('count-cars-per-hour').innerText = String(countOfCarsPerHourAfterIncreaseByOne);
 
+
+        clone = $('#car-9').clone().insertBefore('.car-9:last');
+        cars_count = $("img[id='car-9']").length - 1;
+        display_car_number = cars_count + 8;
+        $('.' + 'car-' + display_car_number).attr('style', 'display:block');
+
+        setTimeout(carLogout,5000);
+        function carLogout() {
+            console.log('decreaseCarCount');
+            cars_count = $("img[id='car-9']").length - 1;
+
+            let isVisible = $("#car-3").is(":visible");
+
+            // if (cars_count != 0 && isVisible) {
+            if (cars_count != 0 ) {
+                $(".car-9:last").remove();
+
+                car_class_number = cars_count + 8;
+                $('.' + 'car-' + car_class_number).attr('style', 'display:none');
+                $('.car-1').attr('style', 'display:block');
+
+                $('.car-3').attr('style', 'display:none');
+
+                let makeCarInvisible = 3000;
+                setTimeout(invisibleCar, makeCarInvisible);
+            }
+        }
+
+        function invisibleCar() {
+            $('.car-1').attr('style', 'display:none');
+        }
 
 
     });
