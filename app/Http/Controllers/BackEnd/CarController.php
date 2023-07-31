@@ -59,7 +59,7 @@ class CarController extends Controller
         return 'Data => ' . $date . '<br>' . 'TimeZone => ' . $timezone . '<br>';
         // return $cars = Car::query()->count();
         //        return $cars = Car::query()
-        //            ->select('login_at', 'logout_at', 'total')
+        //            ->select('login_at', 'logout_at', 'total'))
         //            ->whereRaw('Date(login_at) = CURDATE()')
         //            ->whereNotNull('logout_at')
         //            ->get();
