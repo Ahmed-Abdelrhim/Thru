@@ -27,27 +27,30 @@ class CalcController extends Controller
 
     public function carGetOut(Request $request)
     {
-        $cars = Car::query()
-            ->where('logout_at', null)
-            ->orderBy('login_at','asc')
-            ->get();
-        if (count($cars) === 0) {
+        $firstCarWithoutLogOut = Car::query()->firstWhere('logout_at', null);
+        if (!$firstCarWithoutLogOut) {
             return response()->json(['message' => 'There are no cars logged in inside the system right now '],200);
         }
 
-
-
-        // We can optimize this query to fetch only single raw instead of a collection of rows
-
-
         $now = Carbon::now();
-        $totalServedTimeForCar = Carbon::parse($cars[0]->login_at)->diffInMinutes($now);
-        $cars[0]->logout_at = $now;
-        $cars[0]->total = $totalServedTimeForCar;
-        $cars[0]->save();
-
+        $totalServedTimeForCar = Carbon::parse($firstCarWithoutLogOut->login_at)->diffInMinutes($now);
+        $firstCarWithoutLogOut->logout_at = $now;
+        $firstCarWithoutLogOut->total = $totalServedTimeForCar;
+        $firstCarWithoutLogOut->save();
         // Todo dispatch CarGetOut Job
         // broadcast(new CarGetOutEvent($countOfCars))->toOthers();
         return response()->json(['message' => 'Success Transaction'],200);
     }
 }
+
+//$cars = Car::query()
+//    ->where('logout_at', null)
+//    ->orderBy('login_at','asc')
+//    ->get();
+
+
+//        $now = Carbon::now();
+//        $totalServedTimeForCar = Carbon::parse($cars[0]->login_at)->diffInMinutes($now);
+//        $cars[0]->logout_at = $now;
+//        $cars[0]->total = $totalServedTimeForCar;
+//        $cars[0]->save();
