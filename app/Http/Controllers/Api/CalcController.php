@@ -35,13 +35,18 @@ class CalcController extends Controller
             return response()->json(['message' => 'There are no cars logged in inside the system right now '],200);
         }
 
+
+
+        // We can optimize this query to fetch only single raw instead of a collection of rows
+
+
         $now = Carbon::now();
         $totalServedTimeForCar = Carbon::parse($cars[0]->login_at)->diffInMinutes($now);
         $cars[0]->logout_at = $now;
         $cars[0]->total = $totalServedTimeForCar;
         $cars[0]->save();
 
-        // Todo dispatch CarGetIn Job
+        // Todo dispatch CarGetOut Job
         // broadcast(new CarGetOutEvent($countOfCars))->toOthers();
         return response()->json(['message' => 'Success Transaction'],200);
     }
