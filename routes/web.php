@@ -70,3 +70,8 @@ Route::middleware('auth')->group(function () {
 Route::post('user/logout/form', [ProfileController::class, 'userLogout'])->name('user.logout.form');
 require __DIR__ . '/auth.php';
 
+//  Wael Sleem11:39 AM
+//  host : mypark.com.sa
+//  username : root
+//  password : RysckyeinReb0
+//  port : 22
