@@ -37,8 +37,10 @@ class CalcController extends Controller
         $firstCarWithoutLogOut->logout_at = $now;
         $firstCarWithoutLogOut->total = $totalServedTimeForCar;
         $firstCarWithoutLogOut->save();
+
+        $averageServedTimeForCar = (int) Car::query()->average('total');
         // Todo dispatch CarGetOut Job
-        // broadcast(new CarGetOutEvent($countOfCars))->toOthers();
+        broadcast(new CarGetOutEvent($averageServedTimeForCar))->toOthers();
         return response()->json(['message' => 'Success Transaction'],200);
     }
 }

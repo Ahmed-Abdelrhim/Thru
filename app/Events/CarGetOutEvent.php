@@ -14,24 +14,19 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 class CarGetOutEvent implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    /**
-     * Create a new event instance.
-     */
-    public function __construct()
+    public $averageServedTimeForCar;
+    public function __construct($averageServedTimeForCar)
     {
-        //
+        $this->averageServedTimeForCar = $averageServedTimeForCar;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
-     */
     public function broadcastOn(): array
     {
-        return [
-            new PrivateChannel('channel-name'),
-        ];
+        return ['car-get-out-channel'];
+    }
+
+    public function broadcastAs(): string
+    {
+        return 'carOut';
     }
 }

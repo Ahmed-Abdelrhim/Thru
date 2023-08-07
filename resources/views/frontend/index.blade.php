@@ -217,7 +217,7 @@
                     Average Serving Time
                     {{--                    </a>--}}
                 </p>
-                <h2 style="color:#689552">
+                <h2 style="color:#689552" id="average-serving-time">
                     @if(isset($avgServingTime))
                         {{$avgServingTime}}
                     @else
@@ -330,143 +330,143 @@
 
 </script>
 
-<script>
-    $(document).ready(function () {
-        let display_car_number = 0;
-        $('.right-arrow').on('click', function () {
-            // console.log('right-arrow');
-            carLoginAt();
-        });
+{{--<script>--}}
+{{--    $(document).ready(function () {--}}
+{{--        let display_car_number = 0;--}}
+{{--        $('.right-arrow').on('click', function () {--}}
+{{--            // console.log('right-arrow');--}}
+{{--            carLoginAt();--}}
+{{--        });--}}
 
-        $('.left-arrow').on('click', function () {
-            // console.log('left-arrow');
-            carLogoutAt();
-        });
+{{--        $('.left-arrow').on('click', function () {--}}
+{{--            // console.log('left-arrow');--}}
+{{--            carLogoutAt();--}}
+{{--        });--}}
 
-        $('.left-arrow-img').on('click', function () {
-            cars_count = $("img[id='car-9']").length - 1;
-            if (cars_count != 0) {
-                $('.car-3').attr('style', 'display:block');
-                car_class_number = cars_count + 8;
-                $('.' + 'car-' + car_class_number).attr('style', 'display:none');
-            }
-        });
-
-
-        function carLoginAt() {
-            console.log('increaseCarCount');
-            clone = $('#car-9').clone().insertBefore('.car-9:last');
-            cars_count = $("img[id='car-9']").length - 1;
-            display_car_number = cars_count + 8;
-            $('.' + 'car-' + display_car_number).attr('style', 'display:block');
-            console.log(cars_count);
-            // makeAjaxRequestForLoginAt();
-        }
-
-        function makeAjaxRequestForLoginAt() {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: '{{route('car.login')}}',
-                success: function (response) {
-                    if (response.status != 200) {
-                        iziToast.error({
-                            title: 'error',
-                            message: 'Something Went Wrong',
-                            position: 'topRight'
-                        });
-                    }
-                }
-            });
-        };
+{{--        $('.left-arrow-img').on('click', function () {--}}
+{{--            cars_count = $("img[id='car-9']").length - 1;--}}
+{{--            if (cars_count != 0) {--}}
+{{--                $('.car-3').attr('style', 'display:block');--}}
+{{--                car_class_number = cars_count + 8;--}}
+{{--                $('.' + 'car-' + car_class_number).attr('style', 'display:none');--}}
+{{--            }--}}
+{{--        });--}}
 
 
-        function carLogoutAt() {
-            console.log('decreaseCarCount');
-            cars_count = $("img[id='car-9']").length - 1;
+{{--        function carLoginAt() {--}}
+{{--            console.log('increaseCarCount');--}}
+{{--            clone = $('#car-9').clone().insertBefore('.car-9:last');--}}
+{{--            cars_count = $("img[id='car-9']").length - 1;--}}
+{{--            display_car_number = cars_count + 8;--}}
+{{--            $('.' + 'car-' + display_car_number).attr('style', 'display:block');--}}
+{{--            console.log(cars_count);--}}
+{{--            // makeAjaxRequestForLoginAt();--}}
+{{--        }--}}
 
-            let isVisible = $("#car-3").is(":visible");
+{{--        function makeAjaxRequestForLoginAt() {--}}
+{{--            $.ajaxSetup({--}}
+{{--                headers: {--}}
+{{--                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--                }--}}
+{{--            });--}}
 
-            if (cars_count != 0 && isVisible) {
-                $(".car-9:last").remove();
-                console.log('In Decrease Car Count Function => ' + cars_count);
-                car_class_number = cars_count + 8;
-                $('.' + 'car-' + car_class_number).attr('style', 'display:none');
-                // Show The Getting Out Car
-                $('.car-1').attr('style', 'display:block');
-                // Make Car Invisible After 3 Seconds
-
-                // $('#left-arrow').off('click');
-                $('#left-arrow').attr('style', 'cursor:default');
-                $('.car-3').attr('style', 'display:none');
-
-                var makeCarInvisible = 3000;
-                setTimeout(invisibleCar, makeCarInvisible);
-                makeAjaxRequestForLogoutAt();
-            }
-        };
-
-        function invisibleCar() {
-            $('.car-1').attr('style', 'display:none');
-            // $('#left-arrow').on('click');
-            $('#left-arrow').attr('style', 'cursor:pointer');
-        }
-
-
-        function makeAjaxRequestForLogoutAt() {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: '{{route('car.logout.at')}}',
-                success: function (response) {
-                    if (response.status != 200) {
-                        iziToast.error({
-                            title: 'error',
-                            message: 'Something Went Wrong',
-                            position: 'topRight'
-                        });
-                    }
-                    if (response.status == 200) {
-                        incrementCountByOne();
-                    }
-                }
-            });
-        };
-
-        function incrementCountByOne() {
-            // Here Increase Count Of Cars / Day By One
-            let countOfCars = $('#count-cars-per-day').text().trim();
-            countOfCarsAfterIncreaseByOne = parseInt(countOfCars) + 1;
-            $('#count-cars-per-day').html('');
-            $('#count-cars-per-day').text(countOfCarsAfterIncreaseByOne);
-
-            // Here Increase Count Of Cars / Hr By One
-            let countOfCarsPerHour = $('#count-cars-per-hour').text().trim();
-            countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1;
-            $('#count-cars-per-hour').html('');
-            $('#count-cars-per-hour').text(countOfCarsPerHourAfterIncreaseByOne);
-
-            // Here Increase Total Served Cars By One
-            let totalServedCars = $('#total-served-cars').text().trim();
-            totalServedCarsAfterIncreaseByOne = parseInt(totalServedCars) + 1;
-            $('#total-served-cars').html('');
-            $('#total-served-cars').text(totalServedCarsAfterIncreaseByOne);
-        };
-
-    });
+{{--            $.ajax({--}}
+{{--                type: 'POST',--}}
+{{--                url: '{{route('car.login')}}',--}}
+{{--                success: function (response) {--}}
+{{--                    if (response.status != 200) {--}}
+{{--                        iziToast.error({--}}
+{{--                            title: 'error',--}}
+{{--                            message: 'Something Went Wrong',--}}
+{{--                            position: 'topRight'--}}
+{{--                        });--}}
+{{--                    }--}}
+{{--                }--}}
+{{--            });--}}
+{{--        };--}}
 
 
-</script>
+{{--        function carLogoutAt() {--}}
+{{--            console.log('decreaseCarCount');--}}
+{{--            cars_count = $("img[id='car-9']").length - 1;--}}
+
+{{--            let isVisible = $("#car-3").is(":visible");--}}
+
+{{--            if (cars_count != 0 && isVisible) {--}}
+{{--                $(".car-9:last").remove();--}}
+{{--                console.log('In Decrease Car Count Function => ' + cars_count);--}}
+{{--                car_class_number = cars_count + 8;--}}
+{{--                $('.' + 'car-' + car_class_number).attr('style', 'display:none');--}}
+{{--                // Show The Getting Out Car--}}
+{{--                $('.car-1').attr('style', 'display:block');--}}
+{{--                // Make Car Invisible After 3 Seconds--}}
+
+{{--                // $('#left-arrow').off('click');--}}
+{{--                $('#left-arrow').attr('style', 'cursor:default');--}}
+{{--                $('.car-3').attr('style', 'display:none');--}}
+
+{{--                var makeCarInvisible = 3000;--}}
+{{--                setTimeout(invisibleCar, makeCarInvisible);--}}
+{{--                makeAjaxRequestForLogoutAt();--}}
+{{--            }--}}
+{{--        };--}}
+
+{{--        function invisibleCar() {--}}
+{{--            $('.car-1').attr('style', 'display:none');--}}
+{{--            // $('#left-arrow').on('click');--}}
+{{--            $('#left-arrow').attr('style', 'cursor:pointer');--}}
+{{--        }--}}
+
+
+{{--        function makeAjaxRequestForLogoutAt() {--}}
+{{--            $.ajaxSetup({--}}
+{{--                headers: {--}}
+{{--                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--                }--}}
+{{--            });--}}
+
+{{--            $.ajax({--}}
+{{--                type: 'POST',--}}
+{{--                url: '{{route('car.logout.at')}}',--}}
+{{--                success: function (response) {--}}
+{{--                    if (response.status != 200) {--}}
+{{--                        iziToast.error({--}}
+{{--                            title: 'error',--}}
+{{--                            message: 'Something Went Wrong',--}}
+{{--                            position: 'topRight'--}}
+{{--                        });--}}
+{{--                    }--}}
+{{--                    if (response.status == 200) {--}}
+{{--                        incrementCountByOne();--}}
+{{--                    }--}}
+{{--                }--}}
+{{--            });--}}
+{{--        };--}}
+
+{{--        function incrementCountByOne() {--}}
+{{--            // Here Increase Count Of Cars / Day By One--}}
+{{--            let countOfCars = $('#count-cars-per-day').text().trim();--}}
+{{--            countOfCarsAfterIncreaseByOne = parseInt(countOfCars) + 1;--}}
+{{--            $('#count-cars-per-day').html('');--}}
+{{--            $('#count-cars-per-day').text(countOfCarsAfterIncreaseByOne);--}}
+
+{{--            // Here Increase Count Of Cars / Hr By One--}}
+{{--            let countOfCarsPerHour = $('#count-cars-per-hour').text().trim();--}}
+{{--            countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1;--}}
+{{--            $('#count-cars-per-hour').html('');--}}
+{{--            $('#count-cars-per-hour').text(countOfCarsPerHourAfterIncreaseByOne);--}}
+
+{{--            // Here Increase Total Served Cars By One--}}
+{{--            let totalServedCars = $('#total-served-cars').text().trim();--}}
+{{--            totalServedCarsAfterIncreaseByOne = parseInt(totalServedCars) + 1;--}}
+{{--            $('#total-served-cars').html('');--}}
+{{--            $('#total-served-cars').text(totalServedCarsAfterIncreaseByOne);--}}
+{{--        };--}}
+
+{{--    });--}}
+
+
+{{--</script>--}}
 
 <script>
     // Initialize Pusher with your credentials
@@ -477,59 +477,64 @@
 
     // Subscribe to the channel where the events are broadcasted
     const channel = pusher.subscribe('car-get-in-channel');
+    const channelOut = pusher.subscribe('car-get-out-channel');
 
     // Listen for the CarEnteredDriveThru event
     // channel.bind('App\\Events\\CarGetInEvent', function(data) {
-    channel.bind('carIn', function(data) {
-        // Update the UI with the new countOfCars without refreshing the page
-        // TODO => Update count of Total Served Cars
-        document.getElementById('total-served-cars').innerText = data.countOfCars;
+    <!-- Here Car Is In-->
+    channel.bind('carIn', function (data) {
+            // Update the UI with the new countOfCars without refreshing the page
+            // TODO => Update count of Total Served Cars
+            document.getElementById('total-served-cars').innerText = data.countOfCars;
 
-        // TODO => Increase count of cars per day by one
-        let countOfCarsPerDay = document.getElementById('count-cars-per-day').textContent.trim();
-        let countOfCarsAfterIncreaseByOne = parseInt(countOfCarsPerDay) + 1;
-        document.getElementById('count-cars-per-day').innerHTML = '';
-        document.getElementById('count-cars-per-day').innerText = String(countOfCarsAfterIncreaseByOne);
+            // TODO => Increase count of cars per day by one
+            let countOfCarsPerDay = document.getElementById('count-cars-per-day').textContent.trim();
+            let countOfCarsAfterIncreaseByOne = parseInt(countOfCarsPerDay) + 1;
+            document.getElementById('count-cars-per-day').innerHTML = '';
+            document.getElementById('count-cars-per-day').innerText = String(countOfCarsAfterIncreaseByOne);
 
-        // TODO => Increase count of cars per hour by one
-        let countOfCarsPerHour = document.getElementById('count-cars-per-hour').textContent.trim();
-        let countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1;
-        document.getElementById('count-cars-per-hour').innerHTML = '';
-        document.getElementById('count-cars-per-hour').innerText = String(countOfCarsPerHourAfterIncreaseByOne);
+            // TODO => Increase count of cars per hour by one
+            let countOfCarsPerHour = document.getElementById('count-cars-per-hour').textContent.trim();
+            let countOfCarsPerHourAfterIncreaseByOne = parseInt(countOfCarsPerHour) + 1;
+            document.getElementById('count-cars-per-hour').innerHTML = '';
+            document.getElementById('count-cars-per-hour').innerText = String(countOfCarsPerHourAfterIncreaseByOne);
 
-
-        clone = $('#car-9').clone().insertBefore('.car-9:last');
-        cars_count = $("img[id='car-9']").length - 1;
-        display_car_number = cars_count + 8;
-        $('.' + 'car-' + display_car_number).attr('style', 'display:block');
-
-        setTimeout(carLogout,5000);
-        function carLogout() {
-            console.log('decreaseCarCount');
+            clone = $('#car-9').clone().insertBefore('.car-9:last');
             cars_count = $("img[id='car-9']").length - 1;
+            display_car_number = cars_count + 8;
+            $('.' + 'car-' + display_car_number).attr('style', 'display:block');
+            setTimeout(carLogout, 2000);
 
-            let isVisible = $("#car-3").is(":visible");
-
-            // if (cars_count != 0 && isVisible) {
-            if (cars_count != 0 ) {
-                $(".car-9:last").remove();
-
-                car_class_number = cars_count + 8;
-                $('.' + 'car-' + car_class_number).attr('style', 'display:none');
-                $('.car-1').attr('style', 'display:block');
-
-                $('.car-3').attr('style', 'display:none');
-
-                let makeCarInvisible = 3000;
-                setTimeout(invisibleCar, makeCarInvisible);
+            function carLogout() {
+                console.log('decreaseCarCount');
+                cars_count = $("img[id='car-9']").length - 1;
+                let isVisible = $("#car-3").is(":visible");
+                // if (cars_count != 0 && isVisible) {
+                if (cars_count != 0) {
+                    $(".car-9:last").remove();
+                    car_class_number = cars_count + 8;
+                    $('.' + 'car-' + car_class_number).attr('style', 'display:none');
+                    $('.car-3').attr('style', 'display:none');
+                    // $('.car-1').attr('style', 'display:block');
+                    // let makeCarInvisible = 3000;
+                    // setTimeout(invisibleCar, makeCarInvisible);
+                }
             }
-        }
+            // function invisibleCar() {
+            //     $('.car-1').attr('style', 'display:none');
+            // }
+        });
 
+    <!-- Here Car Is Out-->
+    channelOut.bind('carOut', function (data) {
+        document.getElementById('average-serving-time').innerText = data.averageServedTimeForCar;
+
+        $('.car-1').attr('style', 'display:block');
+        let makeCarInvisible = 3000;
+        setTimeout(invisibleCar, makeCarInvisible);
         function invisibleCar() {
             $('.car-1').attr('style', 'display:none');
         }
-
-
     });
 </script>
 
