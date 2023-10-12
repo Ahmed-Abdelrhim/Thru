@@ -40,21 +40,21 @@
             </li>
 
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i class="fa-regular fa-circle" style="color: white"></i>
+{{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#">--}}
+{{--                    <i class="fa-regular fa-circle" style="color: white"></i>--}}
 
-                    <span class="menu-title text-truncate li-color" data-i18n="Email" >
-                        Average Serving Time
-                    </span></a>
-            </li>
+{{--                    <span class="menu-title text-truncate li-color" data-i18n="Email" >--}}
+{{--                        Average Serving Time--}}
+{{--                    </span></a>--}}
+{{--            </li>--}}
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i class="fa-regular fa-circle" style="color: white"></i>
+{{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#">--}}
+{{--                    <i class="fa-regular fa-circle" style="color: white"></i>--}}
 
-                    <span class="menu-title text-truncate li-color" data-i18n="Email">
-                        Count Of Cars Per Day
-                    </span></a>
-            </li>
+{{--                    <span class="menu-title text-truncate li-color" data-i18n="Email">--}}
+{{--                        Count Of Cars Per Day--}}
+{{--                    </span></a>--}}
+{{--            </li>--}}
 
 {{--            <li class=" nav-item"><a class="d-flex align-items-center" href="#">--}}
 {{--                    <i class="fa-regular fa-circle" style="color: white"></i>--}}
@@ -80,18 +80,18 @@
 
         </ul>
 
-        <div class="logout" style="margin-top: 82%; margin-left: 6%;">
-            <a onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                <img src="{{asset('images/logout.svg')}}" alt="" />
-                <span class="menu-title text-truncate" data-i18n="Email" style="color: #E65050; font-weight: bold; margin-left: 8px;" >
-                Logout
-            </span>
-            </a>
-        </div>
+{{--        <div class="logout" style="margin-top: 82%; margin-left: 6%;">--}}
+{{--            <a onclick="event.preventDefault();document.getElementById('logout-form').submit();">--}}
+{{--                <img src="{{asset('images/logout.svg')}}" alt="" />--}}
+{{--                <span class="menu-title text-truncate" data-i18n="Email" style="color: #E65050; font-weight: bold; margin-left: 8px;" >--}}
+{{--                Logout--}}
+{{--            </span>--}}
+{{--            </a>--}}
+{{--        </div>--}}
 
-        <form class="d-none" id="logout-form" action="{{route('user.logout.form')}}" method="post">
-            @csrf
-        </form>
+{{--        <form class="d-none" id="logout-form" action="{{route('user.logout.form')}}" method="post">--}}
+{{--            @csrf--}}
+{{--        </form>--}}
     </div>
 </div>
 <!-- END: Main Menu-->

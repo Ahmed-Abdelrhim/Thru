@@ -22,6 +22,10 @@ class RouteServiceProvider extends ServiceProvider
     public const Role = '/role';
     public const User = '/user';
 
+    public const Permission = '/permission';
+
+
+
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

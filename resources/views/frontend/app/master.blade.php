@@ -6,7 +6,7 @@
     @include('frontend.partials._head')
     @include('frontend.partials.custom_style')
 
-
+    @stack('css')
 </head>
 <!-- END: Head-->
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static   menu-collapsed" data-open="click"
@@ -18,5 +18,7 @@
 <div class="drag-target"></div>
 {{--    @include('frontend.partials.footer')    --}}
 @include('frontend.partials._script')
+@stack('script')
+
 </body>
 </html>

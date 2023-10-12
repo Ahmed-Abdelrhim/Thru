@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\FrontEnd\FrontController;
 use App\Http\Controllers\BackEnd\RoleController;
+use App\Http\Controllers\BackEnd\PermissionController;
 
 
 /*
@@ -64,6 +65,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('playing', [CarController::class, 'logoutAt']);
     Route::get('playing', [CarController::class, 'logoutAt']);
+
+    //PermissionController···
+    Route::get('permission', [PermissionController::class, 'index'])->name('permission.index');
+    Route::get('permission/show/{id}', [PermissionController::class, 'show'])->name('permission.show');
+    Route::post('permission/show/update/{id}', [PermissionController::class, 'showUpdate'])->name('permission.show.update');
 
 
 });

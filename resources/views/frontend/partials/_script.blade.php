@@ -1,6 +1,6 @@
-{{--<script src="{{asset('frontend/js/shared/dataTables.bootstrap5.min.js')}}"></script>--}}
-{{--<script src="{{asset('frontend/js/shared/datatables.buttons.min.js')}}"></script>--}}
-{{--<script src="{{asset('frontend/js/shared/dataTables.responsive.min.js')}}"></script>--}}
+<script src="{{asset('frontend/js/shared/dataTables.bootstrap5.min.js')}}"></script>
+<script src="{{asset('frontend/js/shared/datatables.buttons.min.js')}}"></script>
+<script src="{{asset('frontend/js/shared/dataTables.responsive.min.js')}}"></script>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -59,6 +59,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 <script src="{{ asset('assets/modules/js/iziToast.min.js') }}"></script>
 
+
+
+
 <script>
     @if(Session::has('message'))
     var type = "{{ Session::get('alert-type','info') }}"
@@ -97,6 +100,12 @@
     }
     @endif
 </script>
+
+
+
+
+
+
 
 
 <script type="text/javascript">

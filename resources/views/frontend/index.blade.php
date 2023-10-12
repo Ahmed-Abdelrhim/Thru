@@ -117,6 +117,16 @@
                     </a>
                 </li>
 
+
+                <li class="item">
+                    <a href="{{route('permission.index')}}" class="nav_link">
+                <span class="navlink_icon">
+                    <img class="" src="{{asset('images/dashboard/o.png')}}" alt="">
+                </span>
+                        <span class="navlink">Roles</span>
+                    </a>
+                </li>
+
                 <!--
                 <li class="item">
                     <a href="{{route('role.index')}}" class="nav_link">
