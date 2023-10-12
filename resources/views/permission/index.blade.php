@@ -74,9 +74,15 @@
                                               </td>
                                               <td>
                                                   <div >
-                                                      <a class="btn btn-primary" href="{{route('permission.show' , $role->id)}}">Permission</a>
-                                                      <a class="btn btn-dark">Edit</a>
-                                                      <a class="btn btn-danger">Delete</a>
+                                                      <a class="btn btn-primary" href="{{route('permission.show' , $role->id)}}" title="permissions">
+                                                          <i class="fas fa-plus"></i>
+                                                      </a>
+                                                      <a class="btn btn-dark" title="Edit">
+                                                          <i class="far fa-edit"></i>
+                                                      </a>
+                                                      <a class="btn btn-danger" title="Delete">
+                                                          <i class="fa fa-trash"></i>
+                                                      </a>
                                                   </div>
                                               </td>
                                            </tr>

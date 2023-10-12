@@ -223,13 +223,8 @@
 @endsection
 @section('scripts')
     <script>
-
-
         $('.mainmodule').each(function () {
-
             var mainmodule = $(this).attr('id');
-
-
             var mainidCreate = mainmodule + "_create";
             var mainidEdit = mainmodule + "_edit";
             var mainidDelete = mainmodule + "_delete";
@@ -250,16 +245,12 @@
             }
         });
 
-
         function processCheck(event) {
             var mainmodule = $(event).attr('id');
-
             var mainidCreate = mainmodule + "_create";
             var mainidEdit = mainmodule + "_edit";
             var mainidDelete = mainmodule + "_delete";
             var mainidShow = mainmodule + "_show";
-
-
             if ($('#' + mainmodule).is(':checked')) {
 
                 $('#' + mainidCreate).prop('disabled', false);
@@ -295,9 +286,4 @@
             }
         }
     </script>
-
-
-
-
-
 @endsection
